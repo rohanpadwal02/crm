@@ -1,0 +1,33 @@
+package dragdrop;
+
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Test2 {
+public static void main(String[] args) {
+	WebDriver driver =new ChromeDriver();
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+	driver.manage().window().maximize();
+	driver.get("https://www.google.com/");
+	driver.findElement(By.xpath("(//a[@role='button'])[1]")).click();
+	driver.switchTo().frame("app");
+	//WebElement youtube01 = driver.findElement(By.xpath("//span[text()='YouTube']"));
+	WebElement gmail = driver.findElement(By.xpath("//span[text()='Gmail']"));
+
+	Actions a =new Actions(driver);
+	a.click(gmail).perform();
+	driver.findElement(By.xpath("(//span[text()='Create an account'])[2]")).click();
+
+
+	
+	
+    
+   
+}
+}
